@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     submitButton.disabled = true;
     submitButton.value = "Loading...";
-    outputDiv.innerText = "Thinking of a joke...";
+
+    // Show blinking thinking message with lightbulb
+    outputDiv.innerHTML = `<span class="blink">💡 Thinking of a joke...</span>`;
 
     try {
       const response = await fetch(
@@ -26,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const answer = data.answer || "No joke returned.";
 
       typeOutText(outputDiv, answer);
-
       inputField.value = ""; // Clear input field
     } catch (error) {
       outputDiv.innerText = "Oops! Couldn't fetch a joke.";
@@ -37,9 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Typing effect function (fixed for word spaces)
   function typeOutText(element, text, speed = 30) {
-    element.innerHTML = ""; // Clear previous content
+    element.innerHTML = ""; // Clear "thinking" message
 
     const textSpan = document.createElement("span");
     element.appendChild(textSpan);
