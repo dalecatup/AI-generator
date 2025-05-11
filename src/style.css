@@ -2,21 +2,66 @@ body {
   background: #bfd8d5;
   font-family: "Roboto", sans-serif;
 }
+h1 {
+  text-align: center;
+  font-size: 35px;
+  padding: 5px;
+}
 header {
   border-bottom: 1px solid #f4f3f3;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 main {
-  padding: 30px 0;
+  padding: 20px 0;
+}
+.input-area {
+  background: #dfdfdf;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 form {
   display: block;
   text-align: center;
 }
+form .search-field {
+  background-color: #f4f3f3;
+  color: rgba(50, 68, 57, 0.4);
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  width: 70%;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+form .search-button {
+  margin-left: 0 auto;
+  font-size: 15px;
+  background-color: #3baea0;
+  color: #fff;
+  border: #fff;
+  padding: 10px;
+  line-height: 1;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+.generated {
+  text-align: center;
+  background: #dfdfdf;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
 footer {
   color: #393e46;
   font-family: "Didact Gothic", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
   margin: 0 auto;
   border-top: 1px solid #f4f3f3;
