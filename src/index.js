@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     submitButton.disabled = true;
     submitButton.value = "Loading...";
-
-    // Show blinking thinking message with lightbulb
     outputDiv.innerHTML = `<span class="blink">💡 Thinking of a joke...</span>`;
 
     try {
@@ -27,8 +25,27 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await response.json();
       const answer = data.answer || "No joke returned.";
 
-      typeOutText(outputDiv, answer);
-      inputField.value = ""; // Clear input field
+      outputDiv.innerHTML = "";
+
+      // Split into lines by sentence breaks
+      const lines = answer
+        .split(/\n+|\.+\s*/)
+        .filter((line) => line.trim() !== "");
+
+      async function typeLines(index = 0) {
+        if (index >= lines.length) return;
+
+        const line = lines[index].trim();
+        const p = document.createElement("p");
+        outputDiv.appendChild(p);
+
+        await typeOutText(p, line);
+        typeLines(index + 1);
+      }
+
+      typeLines();
+
+      inputField.value = "";
     } catch (error) {
       outputDiv.innerText = "Oops! Couldn't fetch a joke.";
       console.error("Error fetching joke:", error);
@@ -39,18 +56,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function typeOutText(element, text, speed = 30) {
-    element.innerHTML = ""; // Clear "thinking" message
-
-    const textSpan = document.createElement("span");
-    element.appendChild(textSpan);
-
-    let i = 0;
-    const interval = setInterval(() => {
-      textSpan.innerHTML += text[i] === " " ? "&nbsp;" : text[i];
-      i++;
-      if (i >= text.length) {
-        clearInterval(interval);
-      }
-    }, speed);
+    return new Promise((resolve) => {
+      let i = 0;
+      const interval = setInterval(() => {
+        element.innerHTML += text[i] === " " ? "&nbsp;" : text[i];
+        i++;
+        if (i >= text.length) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, speed);
+    });
   }
 });

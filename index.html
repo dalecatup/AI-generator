@@ -4,43 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
-    <title>AI Generator</title>
+    <title>AI Joke Generator</title>
   </head>
   <body>
-    <h1>😹 Joke Generator</h1>
-    <header></header>
-    <main>
-      <div class="input-area">
-        <form id="generator">
-          <input
-            type="text"
-            placeholder="Enter a topic to get a joke!"
-            autofocus
-            required
-            autocomplete="off"
-            class="search-field"
-          />
-          <input type="submit" value="Get Joke!" class="search-button" />
-        </form>
-      </div>
-      <div class="generated">A joke will appear here</div>
-    </main>
-    <footer>
-      <p>
-        Project coded by
-        <a href="https://kumadesign.netlify.app/" target="_blank"
-          >Marina Reggiani</a
-        >
-        - opensourced on
-        <a href="https://github.com/dalecatup/AI-generator" target="_blank"
-          >Github</a
-        >
-        and hosted on
-        <a href="https://kuma-ai-generator.netlify.app" target="_blank"
-          >Netlify</a
-        >
-      </p>
-    </footer>
+    <div class="cuerpo">
+      <h1>🤖 AI Joke Generator 😹</h1>
+      <header></header>
+      <main>
+        <div class="input-area">
+          <form id="generator">
+            <input
+              type="text"
+              placeholder="Enter a topic to get a joke!"
+              autofocus
+              required
+              autocomplete="off"
+              class="search-field"
+            />
+            <input type="submit" value="Submit" class="search-button" />
+          </form>
+          <p class="form-instruction">e.g. cats, pizza, exams, Mondays…</p>
+        </div>
+        <div class="generated">The joke will appear here 🤩</div>
+      </main>
+      <footer>
+        <p>
+          Project coded by
+          <a href="https://kumadesign.netlify.app/" target="_blank"
+            >Marina Reggiani</a
+          >
+          - opensourced on
+          <a href="https://github.com/dalecatup/AI-generator" target="_blank"
+            >Github</a
+          >
+          and hosted on
+          <a href="https://kuma-ai-generator.netlify.app" target="_blank"
+            >Netlify</a
+          >
+        </p>
+      </footer>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
